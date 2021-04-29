@@ -30,11 +30,16 @@ public class MongoDBCDemo
     {
         //Java-MongoDB connection
 
-        Logger.getLogger("org.mongodb.driver").setLevel(Level.OFF);
+        Config config = Config.getInstance();
+        MongoCollection<Document> cars = config.getMongoDatabase().getCollection("cars");
 
-        try (MongoClient mongo = MongoClients.create())
-        {
-            mongo.listDatabaseNames().forEach((Consumer<String>) System.out::println);
-        }
+        //Document car = new Document ("patente", "IMR021").append("año", 2001).append("modelo", "c4");
+        //ObjectId id = cars.insertOne(car).getInsertedId().asObjectId().getValue();
+
+        //cars.find().forEach((Consumer<Document>) System.out::println);
+
+        //cars.find(eq("modelo","corolla")).forEach((Consumer<Document>) System.out::println);
+
+        cars.find(and(gt("año", 2000))).forEach((Consumer<Document>) System.out::println);
     }
 }
