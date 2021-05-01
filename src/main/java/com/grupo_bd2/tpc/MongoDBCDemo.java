@@ -1,6 +1,7 @@
 package com.grupo_bd2.tpc;
 
 import com.grupo_bd2.tpc.config.*;
+import com.grupo_bd2.tpc.entities.Address;
 import com.mongodb.*;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoClient;
@@ -30,16 +31,17 @@ public class MongoDBCDemo
     {
         //Java-MongoDB connection
 
-        Config config = Config.getInstance();
-        MongoCollection<Document> cars = config.getMongoDatabase().getCollection("cars");
+        MongoCollection<Address> addresses = Config.getInstance().getMongoDatabase().getCollection("addresses",Address.class);
 
-        //Document car = new Document ("patente", "IMR021").append("año", 2001).append("modelo", "c4");
-        //ObjectId id = cars.insertOne(car).getInsertedId().asObjectId().getValue();
+        //cars.find(eq("modelo","corolla")).forEach((Consumer<Car>) System.out::println); //ejemplosxd
 
-        //cars.find().forEach((Consumer<Document>) System.out::println);
+        //cars.find(and(gt("año", 2000))).forEach((Consumer<Car>) System.out::println); // de filtros, gt() es greater than
 
-        //cars.find(eq("modelo","corolla")).forEach((Consumer<Document>) System.out::println);
+        Address address = new Address(1046,"Thorne","Jose Marmol","Buenos Aires");
 
-        cars.find(and(gt("año", 2000))).forEach((Consumer<Document>) System.out::println);
+        addresses.insertOne(address);
+
+        addresses.find().forEach((Consumer<Address>) System.out::println);
+
     }
 }
