@@ -58,3 +58,17 @@ public String getApellido (){
 public void setApellido (String apellido){
     this.apellido = apellido;
 }
+
+public String getObraSocial (){
+    return this.obraSocial;
+}
+public void setObraSocial (String obraSocial){
+    this.obraSocial = obraSocial;
+}
+
+public int getNumeroAfiliado(){
+    return this.numeroAfiliado;
+}
+public void setNumeroAfiliado (int numeroAfiliado){
+    this.numeroAfiliado = numeroAfiliado;
+}
