@@ -23,3 +23,38 @@ public class Client {
         this.affiliateNumber = affiliateNumber;
     }
 }
+
+public ObjetId getId (){
+    return this.id;
+}
+public void setId (final ObjetId id) {
+    this.id = id;
+}
+
+public Direccion getDireccion (){
+    return this.direccion;
+}
+public void setDireccion (Direccion direccion){
+    this.direccion = direccion;
+}
+
+public int getDni (){
+    return this.dni;
+}
+public void setDni (int dni){
+    this.dni = dni;
+}
+
+public String getNombre (){
+    return this.nombre;
+}
+public void setNombre (String nombre){
+    this.nombre = nombre;
+}
+
+public String getApellido (){
+    return this.apellido;
+}
+public void setApellido (String apellido){
+    this.apellido = apellido;
+}
